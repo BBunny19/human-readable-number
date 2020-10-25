@@ -3,7 +3,7 @@ module.exports = function toReadable (number) {
     let b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
     
     
-        if ((num = num.toString()).length > 9) return 'overflow';
+        if ((num = num.toString()).length > 9 ||  num === '0') return 'zero';
         n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
         if (!n) return; let str = '';
         str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
